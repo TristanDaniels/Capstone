@@ -32,8 +32,8 @@
           </div>
         </div>
         <div class="mb-3">
-          <label for="userpassword" class="form-label">Password</label>
-          <input type="password" class="form-control" id="userpassword" />
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" />
         </div>
         <div class="mb-3">
           <label for="userRole" class="form-label">User role</label>
@@ -65,7 +65,7 @@
 
         let fullname = document.getElementById("fullname").value;
         let email = document.getElementById("email").value;
-        let userpassword = document.getElementById("userpassword").value;
+        let password = document.getElementById("password").value;
         let userRole = document.getElementById("userRole").value;
         let phonenumber = document.getElementById("phonenumber").value;
         let joinDate = document.getElementById("joinDate").value;
@@ -76,7 +76,7 @@
           body: JSON.stringify({
             fullname: fullname,
             email: email,
-            userpassword: userpassword,
+            password: password,
             userRole: userRole,
             phonenumber: phonenumber,
             joinDate: joinDate,
