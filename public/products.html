@@ -13,23 +13,7 @@
     />
   </head>
   <body>
-    <table class="table caption-top">
-      <caption>
-        Table of products
-      </caption>
-      <thead>
-        <tr>
-          <th>title</th>
-          <th>category</th>
-          <th>description</th>
-          <th>imgURL</th>
-          <th>price</th>
-          <th>userID</th>
-          <th>quantity</th>
-        </tr>
-      </thead>
-      <tbody id="products"></tbody>
-    </table>
+    <div id="products"></div>
 
     <!-- Import products -->
     <script>
@@ -46,15 +30,11 @@
         productContainer.innerHTML = "";
         products.forEach((product) => {
           productContainer.innerHTML += `
-     <tr>
-        <th>${product.title}</th>
-        <td>${product.category}</td>
-        <td>${product.description}</td>
-        <td>${product.imgURL}</td>
-        <td>${product.price}</td>
-        <td>${product.userID}</td>
-        <td>${product.quantity}</td>
-      </tr>
+     <div class="card shadow mb-4">
+      <h5 class="text-black">${product.title}</h5>
+          <img src=${product.image} class="car-img mb-4 img-fluid" alt="Picture of product" />
+          <p>${product.price}</p>
+          <p class="mt-2">${product.category}</p>
     `;
         });
       }
