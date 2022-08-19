@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
     res.status(400).send(error);
   }
 });
-router.post("/", middleware, (req, res) => {
+router.post("/", (req, res) => {
   const { fullname, email, password, userRole, phonenumber, joinDate, cart } =
     req.body;
   try {
