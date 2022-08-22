@@ -110,7 +110,7 @@ router.post("/register", (req, res) => {
       fullname,
       // We sending the hash value to be stored witin the table
       email,
-      cart: "[]",
+      cart: "",
       joinDate,
       userRole: "user",
       phonenumber,
@@ -120,7 +120,7 @@ router.post("/register", (req, res) => {
     con.query(sql, user, (err, result) => {
       if (err) throw err;
       console.log(result);
-      res.send(`User ${(user.fullname, user.email)} created successfully`);
+      res.send(`User ${user.fullname} created successfully`);
     });
   } catch (error) {
     console.log(error);

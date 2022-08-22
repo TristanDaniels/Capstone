@@ -11,6 +11,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div id="products"></div>
@@ -32,7 +33,7 @@
      <div class="card shadow mb-4">
       <h5 class="text-black">${product.title}</h5>
           <img src=${product.image} class="car-img mb-4 img-fluid" alt="Picture of product" />
-          <p>${product.price}</p>
+          <p>R${product.price}</p>
           <p class="mt-2">${product.category}</p>
     `;
         });
