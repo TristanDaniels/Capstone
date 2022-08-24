@@ -205,12 +205,12 @@ router.post("/forgot-psw", (req, res) => {
   try {
     let sql = "SELECT * FROM users WHERE ?";
     let user = {
-      fullname: req.body.fullname,
+      email: req.body.email,
     };
     con.query(sql, user, (err, result) => {
       if (err) throw err;
       if (result === 0) {
-        res.status(400), res.send("fullname not found");
+        res.status(400), res.send("Email not found");
       } else {
         // Allows me to connect to the given fullname account || Your fullname
         const transporter = nodemailer.createTransport({
@@ -226,16 +226,16 @@ router.post("/forgot-psw", (req, res) => {
         var mailData = {
           from: process.env.MAILERUSER,
           // Sending to the person who requested
-          to: result[0].fullname,
+          to: result[0].email,
 
-          subject: "email Reset",
+          subject: "Password Reset",
           html: `<div>
-            <h3>Hi ${result[0].password},</h3>
+            <h3>Hi ${result[0].fullname},</h3>
             <br>
-            <h4>Click link below to reset your email</h4>
+            <h4>Click link below to reset your password</h4>
 
             <a href="https://user-images.githubusercontent.com/4998145/52377595-605e4400-2a33-11e9-80f1-c9f61b163c6a.png">
-              Click Here to Reset email
+              Click Here to Reset Password
               id = ${result[0].id}
             </a>
 
@@ -249,13 +249,13 @@ router.post("/forgot-psw", (req, res) => {
           </div>`,
         };
 
-        // Check if fullname can be sent
-        // Check email and fullname given in .env file
+        // Check if email can be sent
+        // Check password and email given in .env file
         transporter.verify((error, success) => {
           if (error) {
             console.log(error);
           } else {
-            console.log("fullname valid! ", success);
+            console.log("Email valid! ", success);
           }
         });
 
@@ -263,7 +263,7 @@ router.post("/forgot-psw", (req, res) => {
           if (error) {
             console.log(error);
           } else {
-            res.send("Please Check your fullname", result[0].id);
+            res.send("Please Check your email", result[0].id);
           }
         });
       }
