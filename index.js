@@ -22,7 +22,7 @@ app.get("/", function (req, res) {
   res.sendFile(_dirname + "/" + "register.html");
 });
 app.get("/", function (req, res) {
-  res.sendFile(_dirname + "/" + "reset_password.html");
+  res.sendFile(_dirname + "/" + "reset-psw.html");
 });
 
 const port = process.env.PORT || 6969;

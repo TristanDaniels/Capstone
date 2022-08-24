@@ -214,11 +214,11 @@ router.post("/forgot-psw", (req, res) => {
       } else {
         // Allows me to connect to the given fullname account || Your fullname
         const transporter = nodemailer.createTransport({
-          host: process.env.MAILERHOST,
-          port: process.env.MAILERPORT,
+          host: "smtp.ethereal.email",
+          port: 587,
           auth: {
-            user: process.env.MAILERUSER,
-            pass: process.env.MAILERPASS,
+            user: "yvette.wilderman@ethereal.email",
+            pass: "TS1pbNYsQznYZ6kjTX",
           },
         });
 
@@ -234,7 +234,7 @@ router.post("/forgot-psw", (req, res) => {
             <br>
             <h4>Click link below to reset your password</h4>
 
-            <a href="https://user-images.githubusercontent.com/4998145/52377595-605e4400-2a33-11e9-80f1-c9f61b163c6a.png">
+            <a href="http://localhost:6969/users/reset-psw.html">
               Click Here to Reset Password
               id = ${result[0].id}
             </a>
