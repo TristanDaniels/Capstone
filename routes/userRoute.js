@@ -273,7 +273,7 @@ router.post("/forgot-psw", (req, res) => {
   }
 });
 
-// Rest email Route
+// Reset password Route
 
 router.put("reset-psw/:id", (req, res) => {
   let sql = "SELECT * FROM users WHERE ?";
