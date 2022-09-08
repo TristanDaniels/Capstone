@@ -61,7 +61,11 @@ router.put("/:id", middleware, (req, res) => {
       `UPDATE products set title = "${title}", category = "${category}", description = "${description}", imgURL = "${imgURL}", price = "${price}", userID = "${req.user.id}", quantity = "${quantity}" WHERE id = "${req.params.id}"`,
       (err, result) => {
         if (err) throw err;
-        res.send(result);
+        // res.send(result);
+        res.json({
+          msg: "Game edited",
+          result: result,
+        });
       }
     );
   } catch (error) {
