@@ -71,7 +71,7 @@ router.put("/:id", middleware, (req, res) => {
       (err, result) => {
         if (err) throw err;
         res.json({
-          msg: `Edited user ${result[0].fullname}`,
+          msg: `Edited user`,
           userData: result,
         });
       }
