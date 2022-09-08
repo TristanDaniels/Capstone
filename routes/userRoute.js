@@ -70,7 +70,10 @@ router.put("/:id", middleware, (req, res) => {
       `update users set fullname = "${fullname}",  email = "${email}", password = "${password}", userRole = "${userRole}", phonenumber = "${phonenumber}", joinDate = "${joinDate}", cart = "${cart}" where id = "${req.params.id}"`,
       (err, result) => {
         if (err) throw err;
-        res.send(result);
+        res.json({
+          msg: `Edited user ${result[0].fullname}`,
+          userData: result,
+        });
       }
     );
   } catch (error) {
